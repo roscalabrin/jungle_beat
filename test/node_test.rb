@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/node'
+require 'pry'
 
 class NodeTest < Minitest::Test
 
@@ -12,6 +13,7 @@ class NodeTest < Minitest::Test
   def test_retrieve_data_from_node
     # skip
     node = Node.new("plop")
+    binding.pry
     assert_equal "plop", node.data
   end
 
