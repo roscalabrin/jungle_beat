@@ -46,25 +46,63 @@ class LinkedList
   end
 
   def insert_middle(index, data)
-    # new_node = Node.new(data)
-    index = index
     node_count = 0
     current_node = head
-    while current_node.next_node != nil
+    until node_count == index - 1
       node_count += 1
       current_node = current_node.next_node
-      if node_count = index - 1
-        break
-      end
     end
     new_node = Node.new(data)
     new_node.next_node = current_node.next_node
     current_node.next_node = new_node
   end
 
-
   def count
     head != nil ? counter : 0
+  end
+
+  def pop(data) #eliminates last element of the list
+    current_node = head
+      while current_node.next_node.next_node != nil
+      current_node = current_node.next_node
+      end
+      @data = data
+      current_node.next_node = nil
+  end
+
+  def include?(data)
+  current_node = head
+    while current_node.next_node != nil
+      if current_node.data == data
+        break
+        p current_node.data == data
+      end
+      current_node = current_node.next_node
+    end
+    p current_node.data == data
+  end
+
+  def find(position, position_2)
+  node_count = 0
+  current_node = head
+    until node_count == position
+      node_count += 1
+      current_node = current_node.next_node
+    end
+    find_array = []
+    find_array << current_node.data
+    find_part_2(find_array, current_node, position_2)
+  end
+
+  def find_part_2(find_array,current_node, position_2)
+  node_count = 1
+  current_node = current_node.next_node
+    until node_count == position_2
+      node_count += 1
+      find_array << current_node.data
+      current_node = current_node.next_node
+    end
+    p find_array.join(' ')
   end
 
   def counter
@@ -86,7 +124,5 @@ class LinkedList
     end
     p list_data.join(' ')
   end
-
-
 
 end
