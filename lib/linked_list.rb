@@ -9,7 +9,7 @@ class LinkedList
     @head = head
   end
 
-  def append(data)  #adds to the begging -> changes the tail
+  def append(data)  #adds to the end -> changes the tail
    if @head.nil?
      @head = Node.new(data)
    else
@@ -23,7 +23,7 @@ class LinkedList
     @data = data
   end
 
-  def prepend(data) #adds to the begging -> changes the head
+  def prepend(data) #adds to the beginning -> changes the head
     if @head.nil?
       @head = Node.new(data)
     else
@@ -34,6 +34,34 @@ class LinkedList
     end
     @data = data
   end
+
+  def insert(index, data)
+    if index == 0
+      prepend(data)
+    elsif index == -1
+      append(data)
+    else insert_middle(index, data)
+    end
+    @data = data
+  end
+
+  def insert_middle(index, data)
+    # new_node = Node.new(data)
+    index = index
+    node_count = 0
+    current_node = head
+    while current_node.next_node != nil
+      node_count += 1
+      current_node = current_node.next_node
+      if node_count = index - 1
+        break
+      end
+    end
+    new_node = Node.new(data)
+    new_node.next_node = current_node.next_node
+    current_node.next_node = new_node
+  end
+
 
   def count
     head != nil ? counter : 0
@@ -59,14 +87,6 @@ class LinkedList
     p list_data.join(' ')
   end
 
-  # def to_string #not working
-  #   list_data = ""
-  #   current_node = head
-  #   while current_node.next_node != nil
-  #     list_data.concat(current_node.next_node.data)
-  #     current_node = current_node.next_node
-  #   end
-  #   p list_data
-  # end
+
 
 end
