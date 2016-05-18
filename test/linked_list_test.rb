@@ -40,7 +40,7 @@ class LinkedListTest < Minitest::Test
   def test_append_multiple_elements_to_the_linked_list
     # skip
     list = LinkedList.new
-    list.append ("doo")
+    list.append ("doop")
     list.append ("dee")
     assert_equal "dee", list.head.next_node.data
   end
@@ -57,11 +57,29 @@ class LinkedListTest < Minitest::Test
     # skip
     list = LinkedList.new
     list.append("doop")
-    list.append ("dee")
-    # binding.pry
+    list.append ("deep")
     assert_equal "doop deep", list.to_string
   end
 
+  def test_append_and_prepend
+    # skip
+    list = LinkedList.new
+    list.append("plop")
+    list.append ("suu")
+    list.prepend("dop")
+    # binding.pry
+    # assert_equal "doop deep", list.to_string
+    assert_equal 3, list.count
+  end
+
+  def test_list_data_is_combined_in_a_single_string_after_methods
+    # skip
+    list = LinkedList.new
+    list.append("plop")
+    list.append ("suu")
+    list.prepend("dop")
+    assert_equal "dop plop suu", list.to_string
+  end
 
 
 end
