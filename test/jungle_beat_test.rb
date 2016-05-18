@@ -40,4 +40,14 @@ class JungleBeatTest < Minitest::Test
     assert_equal 6, jb.count
   end
 
+  def test_count_after_adding_elements
+    # skip
+    jb = JungleBeat.new
+    jb.append("deep doo ditt woo hoo shu")
+    # binding.pry
+    jb.play
+    assert_equal 6, jb.count
+  end
+
+
 end
