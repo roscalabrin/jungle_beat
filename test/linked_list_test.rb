@@ -5,11 +5,7 @@ require 'pry'
 
 class LinkedListTest < Minitest::Test
 
-  # def setup
-  #   list = LinkedList.new
-  # end
-
-  def test_linked_list_exist # <LinkedList head=nil #45678904567>
+  def test_linked_list_exist
     list = LinkedList.new
     assert_instance_of LinkedList, list
   end
@@ -18,12 +14,20 @@ class LinkedListTest < Minitest::Test
     # skip
     list = LinkedList.new
     assert_equal nil, list.head
+    assert_equal 0, list.count
   end
 
-  def test_adding_elements_to_the_linked_list # <LinkedList head=<Node data="doop" next_node=nil #5678904567890> #45678904567>
+  def test_adding_elements_to_the_linked_list
     # skip
     list = LinkedList.new
     assert_equal "doop", list.append("doop")
+  end
+
+  def test_adding_elements_to_the_linked_list
+    # skip
+    list = LinkedList.new
+    list.append("doop")
+    assert_equal nil, list.head.next_node
   end
 
   def test_the_next_node_is_nil
@@ -33,20 +37,31 @@ class LinkedListTest < Minitest::Test
     assert_equal nil, list.head.next_node
   end
 
+  def test_append_multiple_elements_to_the_linked_list
+    # skip
+    list = LinkedList.new
+    list.append ("doo")
+    list.append ("dee")
+    assert_equal "dee", list.head.next_node.data
+  end
+
   def test_counting_elements_from_the_linked_list
     # skip
     list = LinkedList.new
     list.append("doop")
-    assert_equal 1, list.count
+    list.append ("dee")
+    assert_equal 2, list.count
   end
 
-  def test_data_is_a_string
+  def test_list_data_is_combined_in_a_single_string
     # skip
     list = LinkedList.new
     list.append("doop")
-    assert_equal "doop", list.to_string
+    list.append ("dee")
+    # binding.pry
+    assert_equal "doop deep", list.to_string
   end
 
-# binding.pry
+
 
 end
