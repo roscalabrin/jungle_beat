@@ -11,14 +11,11 @@ class NodeTest < Minitest::Test
   end
 
   def test_retrieve_data_from_node
-    # skip
     node = Node.new("plop")
-    binding.pry
     assert_equal "plop", node.data
   end
 
   def test_node_is_not_linked_to_another_node
-    # skip
     node = Node.new("plop")
     assert_equal nil, node.next_node
   end

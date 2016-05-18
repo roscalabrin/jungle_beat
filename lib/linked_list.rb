@@ -1,41 +1,47 @@
 require_relative 'node'
 
 class LinkedList
-  attr_accessor :data
   attr_accessor :head
-  attr_accessor :next_node
 
   def initialize
     @head = head
   end
 
-  def append(data)  #adds to the end -> changes the tail
+  def append(data)  # adds node to the end -> changes the tail
    if @head.nil?
      @head = Node.new(data)
-   else
+   else append_when_there_is_a_head(data)
+   end
+   @data = data
+  end
+
+  def append_when_there_is_a_head(data)
     new_node = Node.new(data)
     current_node = head
       while current_node.next_node != nil
-      current_node = current_node.next_node
+        current_node = current_node.next_node
       end
       current_node.next_node = new_node
-    end
-    @data = data
+      @data = data
   end
 
-  def prepend(data) #adds to the beginning -> changes the head
+  def prepend(data) # adds node to the beginning -> changes the head
     if @head.nil?
       @head = Node.new(data)
-    else
-      new_head = Node.new(data)
-      previous_head = @head
-      @head = new_head
-      new_head.next_node = previous_head
+    else prepend_when_there_is_a_head(data)
     end
     @data = data
   end
 
-  def insert(index, data)
+  def prepend_when_there_is_a_head(data)
+    new_head = Node.new(data)
+    previous_head = @head
+    @head = new_head
+    new_head.next_node = previous_head
+    @data = data
+  end
+
+  def insert(index, data) # adds node to a specific position
     if index == 0
       prepend(data)
     elsif index == -1
@@ -57,14 +63,10 @@ class LinkedList
     current_node.next_node = new_node
   end
 
-  def count
-    head != nil ? counter : 0
-  end
-
-  def pop(data) #eliminates last element of the list
+  def pop(data) # eliminates last node of the list
     current_node = head
       while current_node.next_node.next_node != nil
-      current_node = current_node.next_node
+        current_node = current_node.next_node
       end
       @data = data
       current_node.next_node = nil
@@ -105,6 +107,10 @@ class LinkedList
     p find_array.join(' ')
   end
 
+  def count
+    head != nil ? counter : 0
+  end
+  
   def counter
     node_count = 1
     current_node = head

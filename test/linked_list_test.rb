@@ -11,27 +11,23 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_head_does_not_exist
-    # skip
     list = LinkedList.new
     assert_equal nil, list.head
     assert_equal 0, list.count
   end
 
   def test_adding_elements_to_the_linked_list
-    # skip
     list = LinkedList.new
     assert_equal "doop", list.append("doop")
   end
 
   def test_the_next_node_is_nil
-    # skip
     list = LinkedList.new
     list.append("doop")
     assert_equal nil, list.head.next_node
   end
 
   def test_append_multiple_elements_to_the_linked_list
-    # skip
     list = LinkedList.new
     list.append ("doop")
     list.append ("dee")
@@ -39,7 +35,6 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_counting_elements_from_the_linked_list
-    # skip
     list = LinkedList.new
     list.append("doop")
     list.append ("dee")
@@ -47,7 +42,6 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_list_data_is_combined_into_a_single_string
-    # skip
     list = LinkedList.new
     list.append("doop")
     list.append ("deep")
@@ -55,7 +49,6 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_adding_an_element_to_the_beggingin_of_the_linked_list
-    # skip
     list = LinkedList.new
     list.append("plop")
     list.append ("suu")
@@ -65,7 +58,6 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_inserting_an_element_in_the_middle_of_the_list
-    # skip
     list = LinkedList.new
     list.append("plop")
     list.append ("suu")
@@ -75,7 +67,6 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_inserting_with_different_positions
-    # skip
     list = LinkedList.new
     list.append("plop")
     list.append ("suu")
@@ -98,7 +89,6 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_if_an_element_is_included_in_the_list
-    # skip
     list = LinkedList.new
     list.append("deep")
     list.append ("woo")

@@ -11,20 +11,23 @@ class JungleBeatTest < Minitest::Test
     assert_instance_of JungleBeat, jb
   end
 
-  def test_that_jungle_beat_has_a_linked_list_associated
-    # skip
+  def test_that_a_linked_list_is_associated_with_jungle_beat
     jb = JungleBeat.new
     refute nil, jb.list
   end
 
-  def test_that_jungle_beat_linked_list_does_not_have_a_head
-    # skip
+  def test_linked_list_associated_with_jungle_beat_does_not_have_a_head
     jb = JungleBeat.new
     assert_equal nil, jb.list.head
   end
 
-  def test_addings_multiple_nodes_at_the_same_time
-    # skip
+  def test_that_jungle_beat_linked_list_has_a_head_after_adding_nodes
+    jb = JungleBeat.new
+    jb.append("deep")
+    assert_equal "deep", jb.list.head.data
+  end
+
+  def test_adding_multiple_nodes_at_the_same_time
     jb = JungleBeat.new
     jb.append("deep doo ditt")
     assert_equal "deep", jb.list.head.data
@@ -32,22 +35,17 @@ class JungleBeatTest < Minitest::Test
   end
 
   def test_count_after_adding_elements
-    # skip
     jb = JungleBeat.new
     jb.append("deep doo ditt")
     jb.append("woo hoo shu")
-    binding.pry
     assert_equal 6, jb.count
   end
 
   def test_count_after_adding_elements
-    # skip
     jb = JungleBeat.new
     jb.append("deep doo ditt woo hoo shu")
-    # binding.pry
-    jb.play
     assert_equal 6, jb.count
+    jb.play
   end
-
 
 end
