@@ -67,13 +67,14 @@ class LinkedList
     current_node.next_node = new_node
   end
 
-  def pop(data) # eliminates last node of the list
+  def pop(data = "") # eliminates last node of the list
     current_node = head
       while current_node.next_node.next_node != nil
         current_node = current_node.next_node
       end
+      node_deleted = current_node.next_node
       current_node.next_node = nil
-      p data
+      node_deleted.data
   end
 
   def include?(data)

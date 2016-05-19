@@ -104,12 +104,22 @@ class LinkedListTest < Minitest::Test
     list.append ("shi")
     list.append ("shu")
     list.append ("blop")
-    list.pop("blop")
-    assert_equal "deep woo shi shu", list.to_string
-    list.pop("shu")
-    assert_equal "deep woo shi", list.to_string
     assert_equal "blop", list.pop("blop")
+    assert_equal "deep woo shi shu", list.to_string
     assert_equal "shu", list.pop("shu")
+    assert_equal "deep woo shi", list.to_string
+
+  end
+
+  def test_removing_the_last_node_from_the_linked_list_without_passing_an_argument
+    list = LinkedList.new
+    list.append("deep")
+    list.append ("woo")
+    list.append ("shi")
+    list.append ("shu")
+    list.append ("blop")
+    list.pop
+    assert_equal "deep woo shi shu", list.to_string
   end
 
 end
