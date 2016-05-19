@@ -12,7 +12,7 @@ class LinkedList
      @head = Node.new(data)
    else append_when_there_is_a_head(data)
    end
-   @data = data
+   data
   end
 
   def append_when_there_is_a_head(data)
@@ -22,7 +22,7 @@ class LinkedList
         current_node = current_node.next_node
       end
       current_node.next_node = new_node
-      @data = data
+      p data
   end
 
   def prepend(data) # adds node to the beginning -> changes the head
@@ -30,7 +30,7 @@ class LinkedList
       @head = Node.new(data)
     else prepend_when_there_is_a_head(data)
     end
-    @data = data
+    data
   end
 
   def prepend_when_there_is_a_head(data)
@@ -38,7 +38,7 @@ class LinkedList
     previous_head = @head
     @head = new_head
     new_head.next_node = previous_head
-    @data = data
+    data
   end
 
   def insert(index, data) # adds node to a specific position
@@ -46,18 +46,22 @@ class LinkedList
       prepend(data)
     elsif index == -1
       append(data)
-    else insert_middle(index, data)
+    else insert_middle_part_1(index, data)
     end
-    @data = data
+    data
   end
 
-  def insert_middle(index, data)
+  def insert_middle_part_1(index, data)
     node_count = 0
     current_node = head
     until node_count == index - 1
       node_count += 1
       current_node = current_node.next_node
     end
+    insert_middle_part_2(data, current_node)
+  end
+
+  def insert_middle_part_2(data, current_node)
     new_node = Node.new(data)
     new_node.next_node = current_node.next_node
     current_node.next_node = new_node
@@ -68,8 +72,8 @@ class LinkedList
       while current_node.next_node.next_node != nil
         current_node = current_node.next_node
       end
-      @data = data
       current_node.next_node = nil
+      p data
   end
 
   def include?(data)
@@ -110,7 +114,7 @@ class LinkedList
   def count
     head != nil ? counter : 0
   end
-  
+
   def counter
     node_count = 1
     current_node = head

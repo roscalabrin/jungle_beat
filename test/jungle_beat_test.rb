@@ -47,7 +47,7 @@ class JungleBeatTest < Minitest::Test
     assert_equal 6, jb.count
   end
 
-  def test_validation
+  def test_validating_beats
     jb = JungleBeat.new
     jb.append("deep hello ditt woo bye shu")
     assert_equal 4, jb.count
