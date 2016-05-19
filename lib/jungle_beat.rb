@@ -8,10 +8,18 @@ attr_reader :list
   end
 
   def append(data)
-   data = data.split
-   data.each do |string|
-     list.append(string)
-   end
+  restriction = "tee dee deep bop boop la na deep doo ditt woo hoo shu"
+  data = data.split
+  data.each do |string|
+    if restriction.include?(string)
+       list.append(string)
+    else 0
+    end
+  end
+  end
+
+  def all
+    list.to_string
   end
 
   def count

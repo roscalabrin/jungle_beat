@@ -76,7 +76,6 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_retrivieng_an_element_from_a_specific_position_in_the_linked_list
-    # skip
     list = LinkedList.new
     list.append("deep")
     list.append ("woo")
@@ -84,7 +83,6 @@ class LinkedListTest < Minitest::Test
     list.append ("shu")
     list.append ("blop")
     assert_equal "shi", list.find(2, 1)
-    # binding.pry
     assert_equal "woo shi shu", list.find(1, 3)
   end
 
@@ -100,7 +98,6 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_removing_the_last_node_from_the_linked_list
-    # skip
     list = LinkedList.new
     list.append("deep")
     list.append ("woo")
