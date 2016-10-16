@@ -4,10 +4,10 @@ class LinkedList
   attr_accessor :head
 
   def initialize
-    @head = head
+    @head = nil
   end
 
-  def append(data)  # adds node to the end -> changes the tail
+  def append(data)
    if @head.nil?
      @head = Node.new(data)
    else append_when_there_is_a_head(data)
@@ -25,7 +25,7 @@ class LinkedList
       p data
   end
 
-  def prepend(data) # adds node to the beginning -> changes the head
+  def prepend(data)
     if @head.nil?
       @head = Node.new(data)
     else prepend_when_there_is_a_head(data)
@@ -41,7 +41,7 @@ class LinkedList
     data
   end
 
-  def insert(index, data) # adds node to a specific position
+  def insert(index, data)
     if index == 0
       prepend(data)
     elsif index == -1
